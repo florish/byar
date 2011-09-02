@@ -1,5 +1,5 @@
 spec = Gem::Specification.new do |s|
-  s.name = "lmr"
+  s.name = "byar"
   s.summary = "Byar's approximation"
   s.description = "Useful in combination with (H)SMR calculations"
   s.version = "0.0.1"
