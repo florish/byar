@@ -40,6 +40,15 @@ class ByarTest < Test::Unit::TestCase
     assert_equal 88, Byar.z_value
   end
   
+  def test_custom_z_value
+    b = Byar.new(100)
+    b.z_value = 3
+    assert_equal 72.6303331962, b.lower_bound.round(10)
+    
+    # Test if default value (1.96) still works
+    assert_equal 81.3617916060, Byar.lower_bound(100).round(10)
+  end
+  
   def test_obj_lower
     b = Byar.new(100)
     assert_equal 0.9040199067, b.lower(90).round(10)

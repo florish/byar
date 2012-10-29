@@ -19,8 +19,6 @@ class Byar
   #
   Z_VALUE = 1.96
   
-  attr_writer :z_value
-  
   ##
   # Create new Byar approximation calculator for +obs+ observed cases
   def initialize(obs)
@@ -49,16 +47,16 @@ class Byar
   
   ##
   # Calculate lower boundary for observed cases
-  def self.lower_bound(obs)
+  def self.lower_bound(obs, z_value = Z_VALUE)
     return 0 if obs == 0
-    obs * (1 - 1.quo(9 * obs) - Z_VALUE.quo(3 * Math.sqrt(obs))) ** 3
+    obs * (1 - 1.quo(9 * obs) - z_value.quo(3 * Math.sqrt(obs))) ** 3
   end
   
   ##
   # Calculate upper boundary for observed cases
-  def self.upper_bound(obs)
+  def self.upper_bound(obs, z_value = Z_VALUE)
     obs = obs + 1
-    obs * (1 - 1.quo(9 * obs) + Z_VALUE.quo(3 * Math.sqrt(obs))) ** 3
+    obs * (1 - 1.quo(9 * obs) + z_value.quo(3 * Math.sqrt(obs))) ** 3
   end
 
   def self.z_value=(value)
@@ -84,19 +82,25 @@ class Byar
   ##
   # Give lower boundary for observed value
   def lower_bound
-    self.class.lower_bound(@obs)
+    self.class.lower_bound(@obs, z_value)
   end
   
   ##
   # Give upper boundary for observed value
   def upper_bound
-    self.class.upper_bound(@obs)
+    self.class.upper_bound(@obs, z_value)
   end
   
   ##
   # Give object's Z value, with fallback to Class variable or Z_VALUE
   def z_value
     @z_value ||= self.class.z_value
+  end
+  
+  ##
+  # Set custom Z value for this Byar instance
+  def z_value=(value)
+    @z_value = value
   end
   
 end
