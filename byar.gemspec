@@ -3,6 +3,7 @@ spec = Gem::Specification.new do |s|
   s.summary = "Byar's approximation"
   s.description = "Byar's approximation for use in (H)SMR calculations"
   s.version = "0.1.1"
+  s.license = 'MIT'
   s.authors = ['Floris Huetink']
   s.email = "floris@avocado.nl"
   s.homepage = "https://github.com/florish/byar"
