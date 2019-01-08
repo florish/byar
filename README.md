@@ -9,3 +9,7 @@ Byar's approximation calculator in Ruby. Useful when working with (H)SMR mortali
   * Use `Byar.lower(observed, expected)` and `Byar.upper(observed, expected)` to get 95% Byar confidence intervals.
   
 Caution: 1 is used as reference point for cases where observed == expected, not 100!
+
+## License
+
+Byar is released under the [MIT License](./LICENSE).
