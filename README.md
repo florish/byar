@@ -12,4 +12,4 @@ Caution: 1 is used as reference point for cases where observed == expected, not 
 
 ## License
 
-Byar is released under the [MIT License](./LICENSE.txt).
+Byar is released under the [MIT License](./LICENSE).
